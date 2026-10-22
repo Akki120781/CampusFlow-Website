@@ -147,48 +147,106 @@ const roles = [
   },
 ]
 
-const capabilities = [
+const platformModules = [
   {
     number: '01',
-    title: 'Attendance with accountability',
-    text: 'Date-aware class registers, late marking, end-of-roll headcount, locked submissions and admin-reviewed rectification requests.',
+    title: 'Attendance & staff',
+    text: 'A classroom roll call with a clear record and review path.',
+    features: ['Class and date based registers: present, absent and late', 'Headcount before a teacher submits and locks the register', 'Attendance history with admin-reviewed rectification requests', 'Teacher present days, leave balance and leave approvals'],
     icon: ClipboardCheck,
     tone: 'capability-mint',
   },
   {
     number: '02',
-    title: 'Fees that add up clearly',
-    text: 'Monthly fee, pending balance, scholarships, partial payments, payment modes and printable receipts in a single record.',
+    title: 'Fees & payroll records',
+    text: 'Readable balances and a traceable record of money recorded by school staff.',
+    features: ['Monthly fee, total pending, scholarships and rectifications', 'Partial fee payments with cash, cheque or bank-transfer modes', 'Printable fee slips and payment receipts', 'Payroll calculations account for paid and unpaid leave; salary transfer is not connected'],
     icon: CircleDollarSign,
     tone: 'capability-peach',
   },
   {
     number: '03',
-    title: 'Academics in context',
-    text: 'Class timetables, assignment uploads, test schedules, evaluation and results visible to the people who need them.',
+    title: 'Academics & assessment',
+    text: 'Keep the weekly plan, classroom work and published outcomes together.',
+    features: ['Weekly class and teacher timetables', 'Assignment files, student submissions and teacher review', 'Test scheduling, marks entry and result publishing', 'Published results are available in student and parent views'],
     icon: BookOpenCheck,
     tone: 'capability-blue',
   },
   {
     number: '04',
-    title: 'People and school records',
-    text: 'Role-based workspaces for students, parents, teachers and administrators, with school-managed profile updates.',
+    title: 'People & profiles',
+    text: 'Keep the right school information in role-specific workspaces.',
+    features: ['Admin, teacher, student and parent roles', 'Student and teacher profiles managed by school staff', 'Protected profile details stay school-managed', 'Class, contact and academic records held in context'],
     icon: UsersRound,
     tone: 'capability-lime',
   },
   {
     number: '05',
-    title: 'Staff attendance and leave',
-    text: 'Teacher attendance, leave requests and balances connect to the school’s administrative workflow.',
-    icon: CalendarDays,
+    title: 'Family & student portals',
+    text: 'Give students and families a focused view of their school day.',
+    features: ['Parent accounts can view their linked children', 'Attendance, timetable, assignments and published results', 'Fee balances and payment history for linked children', 'Student accounts can review fees but cannot initiate payment'],
+    icon: GraduationCap,
     tone: 'capability-lilac',
   },
   {
     number: '06',
-    title: 'One experience across screens',
-    text: 'A responsive interface designed for office desks, classroom phones and families checking in at home.',
+    title: 'Overview & announcements',
+    text: 'Help each role find the next useful school-day update.',
+    features: ['Role-focused dashboards and day summaries', 'School announcements for the intended audience', 'Attendance, fee and academic records surfaced in their relevant pages', 'Responsive layouts for office, classroom and family use'],
     icon: MessagesSquare,
     tone: 'capability-teal',
+  },
+]
+
+const expansionAreas = [
+  'Admissions and enrollment',
+  'Transport, bus tracking and safety',
+  'Library management',
+  'Inventory and asset tracking',
+  'Hostel and health records',
+  'Biometric attendance integrations',
+  'Automated SMS and WhatsApp',
+  'Online classroom delivery',
+  'Multi-campus analytics',
+  'AI-assisted planning and assessment',
+]
+
+const processFlows = [
+  {
+    number: '01',
+    title: 'Attendance',
+    summary: 'From the classroom register to a reviewed record.',
+    tone: 'flow-attendance',
+    steps: [
+      ['Teacher', 'Mark the roll', 'Choose present, absent or late for each student.'],
+      ['Teacher', 'Confirm headcount', 'Submit the class register; the day is then locked.'],
+      ['Admin', 'Review a correction', 'A rectification request goes to admin for approval.'],
+      ['Family', 'View the history', 'The approved attendance record is visible by date.'],
+    ],
+  },
+  {
+    number: '02',
+    title: 'Fees',
+    summary: 'From a fee entry to a balance families can understand.',
+    tone: 'flow-fees',
+    steps: [
+      ['Admin', 'Set the fee record', 'Monthly fee, scholarship and pending balance are recorded.'],
+      ['Fee desk', 'Record a payment', 'Enter a full or partial amount and its payment mode.'],
+      ['School record', 'Update the ledger', 'The payment history and remaining balance stay together.'],
+      ['Parent', 'Review or print', 'See the linked child’s fee record and receipt.'],
+    ],
+  },
+  {
+    number: '03',
+    title: 'Learning',
+    summary: 'From a teacher’s plan to work and results for the class.',
+    tone: 'flow-learning',
+    steps: [
+      ['Teacher', 'Share class work', 'Publish an assignment or schedule a test.'],
+      ['Student', 'Open and submit', 'Find the task and submit work in the student view.'],
+      ['Teacher', 'Review and assess', 'Evaluate submissions or enter test marks.'],
+      ['Student', 'See the outcome', 'Published marks and results appear in the portal.'],
+    ],
   },
 ]
 
@@ -213,10 +271,10 @@ function Header() {
           {open ? <X size={21} /> : <Menu size={21} />}
         </button>
         <nav className={`main-nav ${open ? 'main-nav-open' : ''}`} aria-label="Main navigation">
-          <a href="#product" onClick={closeMenu}>Product</a>
-          <a href="#how-it-works" onClick={closeMenu}>How it works</a>
+          <a href="#product" onClick={closeMenu}>Platform</a>
+          <a href="#modules" onClick={closeMenu}>Modules</a>
+          <a href="#flows" onClick={closeMenu}>Workflows</a>
           <a href="#for-everyone" onClick={closeMenu}>Who it helps</a>
-          <a href="#capabilities" onClick={closeMenu}>Capabilities</a>
           <a className="nav-cta" href="#product" onClick={closeMenu}>Explore CampusFlow <ArrowUpRight size={15} /></a>
         </nav>
       </div>
@@ -391,28 +449,66 @@ function Roles() {
   )
 }
 
-function Capabilities() {
+function ModuleCatalog() {
   return (
-    <section className="capabilities-section section-pad" id="capabilities">
+    <section className="capabilities-section section-pad" id="modules">
       <div className="page-wrap">
         <div className="capabilities-head">
-          <div><p className="eyebrow eyebrow-ink">THE EVERYDAY TOOLKIT</p><h2>Less scattered work.<br /><span>More connected school life.</span></h2></div>
-          <p>Bring the essential routines together without making the interface another thing to manage.</p>
+          <div><p className="eyebrow eyebrow-ink">THE CAMPUSFLOW MODULES</p><h2>School operations,<br /><span>with the details in place.</span></h2></div>
+          <p>Explore the workflows represented in the current product demo. Sample accounts and activity are illustrative, not live school records.</p>
         </div>
-        <div className="capability-grid">
-          {capabilities.map(({ number, title, text, icon: Icon, tone }) => (
-            <article className="capability" key={number}>
-              <div className={`capability-mark ${tone}`}><Icon size={20} strokeWidth={1.8} /></div>
-              <span className="capability-number">{number}</span>
+        <div className="capability-grid module-grid">
+          {platformModules.map(({ number, title, text, features, icon: Icon, tone }) => (
+            <article className="capability module-card" key={number}>
+              <div className="module-card-top"><div className={`capability-mark ${tone}`}><Icon size={20} strokeWidth={1.8} /></div><span className="module-number">{number}</span></div>
+              <p className="module-kicker">AVAILABLE IN THE DEMO</p>
               <h3>{title}</h3>
-              <p>{text}</p>
+              <p className="module-summary">{text}</p>
+              <ul className="module-features">
+                {features.map((feature) => <li key={feature}><Check size={14} aria-hidden="true" /><span>{feature}</span></li>)}
+              </ul>
             </article>
           ))}
         </div>
         <div className="adapt-strip">
           <div className="adapt-symbol"><ShieldCheck size={22} /></div>
-          <p><strong>School records stay school-managed.</strong> Personal profile changes and operational actions belong with the appropriate school staff.</p>
-          <span className="adapt-tag">A clear line of responsibility</span>
+          <p><strong>Clear product boundaries.</strong> The public demo uses sample data. Parent checkout is simulated, and payroll is a calculation and record workflow, not a salary payout service.</p>
+          <a className="adapt-tag" href="#questions">See demo details <ArrowRight size={14} /></a>
+        </div>
+        <div className="expansion-row">
+          <div className="expansion-copy"><p className="eyebrow eyebrow-ink">ROOM TO GROW</p><h3>Further modules can be scoped as the product grows.</h3><p>These are expansion areas, not active features in this demo build.</p></div>
+          <ul className="expansion-list">{expansionAreas.map((area) => <li key={area}><span aria-hidden="true" />{area}</li>)}</ul>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function ProcessFlows() {
+  return (
+    <section className="process-section section-pad" id="flows">
+      <div className="page-wrap">
+        <div className="process-heading">
+          <div><p className="eyebrow eyebrow-ink">HOW A RECORD MOVES</p><h2>One clear next step<br /><span>for every role.</span></h2></div>
+          <p>These diagrams show the intended handoffs in the demo workflows. They are not claims of automatic messaging or live integrations.</p>
+        </div>
+        <div className="process-list">
+          {processFlows.map((flow) => (
+            <article className={`process-flow ${flow.tone}`} key={flow.number}>
+              <div className="process-flow-title"><span>{flow.number}</span><div><h3>{flow.title}</h3><p>{flow.summary}</p></div></div>
+              <ol className="flow-steps" aria-label={`${flow.title} workflow`}>
+                {flow.steps.map(([role, title, detail], index) => (
+                  <li className="flow-step" key={title}>
+                    <span className="flow-step-index">0{index + 1}</span>
+                    <span className="flow-role">{role}</span>
+                    <strong>{title}</strong>
+                    <span className="flow-detail">{detail}</span>
+                    {index < flow.steps.length - 1 ? <ArrowRight className="flow-next" size={17} aria-hidden="true" /> : null}
+                  </li>
+                ))}
+              </ol>
+            </article>
+          ))}
         </div>
       </div>
     </section>
@@ -425,6 +521,9 @@ function Faq() {
     ['Can teachers use it from a phone?', 'The interface is responsive and the key classroom workflows, including attendance, are designed to work on smaller screens.'],
     ['Can parents see more than one child?', 'The parent workspace is designed to bring linked child profiles and their school information together under one parent account.'],
     ['Can our school see the product before onboarding?', 'This page includes an interactive illustrative workspace so teams can explore the key workflows before discussing a school-specific setup.'],
+    ['Does the demo process real online fee payments?', 'No. The demo checkout is simulated and does not move real money. A live payment gateway requires a production backend, verified credentials, and school-specific configuration.'],
+    ['Can the admin pay salaries from the payroll screen?', 'The current payroll workflow calculates salary figures and leave impact. It does not initiate bank transfers or disburse salaries.'],
+    ['Are admissions, transport, library and other extended modules included?', 'Not in this demo build. Admissions, transport, library, inventory, biometric integrations, online classroom tools and advanced analytics are listed as possible expansion areas and should only be presented as available after implementation and verification.'],
   ]
   return (
     <section className="faq-section section-pad" id="questions">
@@ -455,7 +554,7 @@ function Footer({ setActive }) {
     <footer className="site-footer">
       <div className="page-wrap footer-main">
         <div className="footer-brand"><Brand /><p>A calmer way to bring school operations together.</p></div>
-        <div className="footer-links"><span>EXPLORE</span><a href="#product">Product</a><a href="#how-it-works">How it works</a><a href="#for-everyone">Who it helps</a><a href="#capabilities">Capabilities</a></div>
+        <div className="footer-links"><span>EXPLORE</span><a href="#product">Platform</a><a href="#how-it-works">A school day</a><a href="#flows">Workflows</a><a href="#modules">Modules</a></div>
         <div className="footer-links"><span>THE PLATFORM</span><a href="#product" onClick={() => setActive('attendance')}>Attendance</a><a href="#product" onClick={() => setActive('fees')}>Fee desk</a><a href="#product" onClick={() => setActive('learning')}>Academics</a></div>
         <div className="footer-note"><span>BUILT FOR SCHOOL DAYS</span><p>Designed around the people, routines and small moments that keep a school moving.</p><a href="#top">Back to top <ArrowUpRight size={14} /></a></div>
       </div>
@@ -474,7 +573,8 @@ function App() {
       <DashboardPreview active={active} setActive={setActive} />
       <HowItWorks />
       <Roles />
-      <Capabilities />
+      <ModuleCatalog />
+      <ProcessFlows />
       <Faq />
       <FinalCta />
       <Footer setActive={setActive} />
