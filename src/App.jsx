@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   ArrowDown,
   ArrowRight,
@@ -314,7 +314,7 @@ function Hero() {
 function Intro() {
   return (
     <section className="intro-section section-pad" id="intro">
-      <div className="page-wrap intro-grid">
+      <div className="page-wrap intro-grid" data-reveal>
         <div>
           <p className="eyebrow eyebrow-ink">THE SCHOOL DAY, IN SYNC</p>
           <h2>One school day.<br /><span>Fewer loose ends.</span></h2>
@@ -338,21 +338,21 @@ function DashboardPreview({ active, setActive }) {
   return (
     <section className="product-section section-pad" id="product">
       <div className="page-wrap">
-        <div className="section-heading section-heading-row">
+        <div className="section-heading section-heading-row" data-reveal>
           <div>
             <p className="eyebrow eyebrow-ink">A LOOK INSIDE</p>
             <h2>One workspace.<br /><span>Many school moments.</span></h2>
           </div>
           <p className="section-summary">Switch between a few everyday views. Each one is shaped around the work that role needs to get done.</p>
         </div>
-        <div className="preview-tabs" role="tablist" aria-label="Sample CampusFlow views">
+        <div className="preview-tabs" role="tablist" aria-label="Sample CampusFlow views" data-reveal>
           {modules.map(({ id, label, icon: Icon }) => (
             <button className={`preview-tab ${active === id ? 'preview-tab-active' : ''}`} type="button" key={id} role="tab" id={`tab-${id}`} aria-selected={active === id} aria-controls="sample-workspace" onClick={() => setActive(id)}>
               <Icon size={16} strokeWidth={1.8} /><span>{label}</span>
             </button>
           ))}
         </div>
-        <div className="workspace-window" id="sample-workspace" role="tabpanel" aria-labelledby={`tab-${active}`}>
+        <div className="workspace-window" id="sample-workspace" role="tabpanel" aria-labelledby={`tab-${active}`} data-reveal>
           <aside className="workspace-rail">
             <div className="rail-brand"><span className="brand-symbol brand-symbol-small"><i /><i /><i /></span><span>CampusFlow</span></div>
             <p className="rail-caption">SAMPLE SCHOOL</p>
@@ -368,7 +368,7 @@ function DashboardPreview({ active, setActive }) {
               <div className="breadcrumb">Workspace <span>/</span> {modules.find((item) => item.id === active)?.label}</div>
               <div className="demo-label"><span /> SAMPLE DATA</div>
             </div>
-            <div className="workspace-body">
+            <div className="workspace-body" key={active}>
               <div className="workspace-title-row">
                 <div><p className="workspace-date">MONDAY · SCHOOL DAY</p><h3>{content.title}</h3><p className="workspace-subtitle">{content.subtitle}</p></div>
                 <button className="workspace-action" type="button" onClick={() => setActive(active === 'attendance' ? 'overview' : 'attendance')}>{active === 'attendance' ? 'Back to overview' : 'Open attendance'} <ArrowRight size={14} /></button>
@@ -406,14 +406,14 @@ function HowItWorks() {
   return (
     <section className="workflow-section section-pad" id="how-it-works">
       <div className="page-wrap">
-        <div className="workflow-heading">
+        <div className="workflow-heading" data-reveal>
           <p className="eyebrow eyebrow-ink">A DAY IN THE FLOW</p>
           <h2>Small actions.<br /><span>Better handoffs.</span></h2>
           <p>Good school software does not add another process. It helps the existing ones meet in the right place.</p>
         </div>
         <div className="workflow-list">
           {workflows.map((item) => (
-            <article className={`workflow-item ${item.color}`} key={item.number}>
+            <article className={`workflow-item ${item.color}`} key={item.number} data-reveal>
               <span className="workflow-number">{item.number}</span>
               <span className="workflow-time">{item.time}</span>
               <div><h3>{item.title}</h3><p>{item.text}</p></div>
@@ -430,13 +430,13 @@ function Roles() {
   return (
     <section className="roles-section section-pad" id="for-everyone">
       <div className="page-wrap">
-        <div className="section-heading section-heading-row roles-heading">
+        <div className="section-heading section-heading-row roles-heading" data-reveal>
           <div><p className="eyebrow eyebrow-light">ONE COMMUNITY</p><h2>Made for the people<br />who make a school.</h2></div>
           <p className="section-summary">Different responsibilities, different views. CampusFlow gives each role a workspace that feels relevant to their day.</p>
         </div>
         <div className="roles-grid">
           {roles.map(({ id, title, description, icon: Icon, className, link }) => (
-            <article className={`role-panel ${className}`} key={id}>
+            <article className={`role-panel ${className}`} key={id} data-reveal>
               <div className="role-panel-top"><span>{id}</span><Icon size={22} strokeWidth={1.7} /></div>
               <h3>{title}</h3>
               <p>{description}</p>
@@ -453,13 +453,13 @@ function ModuleCatalog() {
   return (
     <section className="capabilities-section section-pad" id="modules">
       <div className="page-wrap">
-        <div className="capabilities-head">
+        <div className="capabilities-head" data-reveal>
           <div><p className="eyebrow eyebrow-ink">THE CAMPUSFLOW MODULES</p><h2>School operations,<br /><span>with the details in place.</span></h2></div>
           <p>Explore the workflows represented in the current product demo. Sample accounts and activity are illustrative, not live school records.</p>
         </div>
         <div className="capability-grid module-grid">
           {platformModules.map(({ number, title, text, features, icon: Icon, tone }) => (
-            <article className="capability module-card" key={number}>
+            <article className="capability module-card" key={number} data-reveal>
               <div className="module-card-top"><div className={`capability-mark ${tone}`}><Icon size={20} strokeWidth={1.8} /></div><span className="module-number">{number}</span></div>
               <p className="module-kicker">AVAILABLE IN THE DEMO</p>
               <h3>{title}</h3>
@@ -470,12 +470,12 @@ function ModuleCatalog() {
             </article>
           ))}
         </div>
-        <div className="adapt-strip">
+        <div className="adapt-strip" data-reveal>
           <div className="adapt-symbol"><ShieldCheck size={22} /></div>
           <p><strong>Clear product boundaries.</strong> The public demo uses sample data. Parent checkout is simulated, and payroll is a calculation and record workflow, not a salary payout service.</p>
           <a className="adapt-tag" href="#questions">See demo details <ArrowRight size={14} /></a>
         </div>
-        <div className="expansion-row">
+        <div className="expansion-row" data-reveal>
           <div className="expansion-copy"><p className="eyebrow eyebrow-ink">ROOM TO GROW</p><h3>Further modules can be scoped as the product grows.</h3><p>These are expansion areas, not active features in this demo build.</p></div>
           <ul className="expansion-list">{expansionAreas.map((area) => <li key={area}><span aria-hidden="true" />{area}</li>)}</ul>
         </div>
@@ -488,13 +488,13 @@ function ProcessFlows() {
   return (
     <section className="process-section section-pad" id="flows">
       <div className="page-wrap">
-        <div className="process-heading">
+        <div className="process-heading" data-reveal>
           <div><p className="eyebrow eyebrow-ink">HOW A RECORD MOVES</p><h2>One clear next step<br /><span>for every role.</span></h2></div>
           <p>These diagrams show the intended handoffs in the demo workflows. They are not claims of automatic messaging or live integrations.</p>
         </div>
         <div className="process-list">
           {processFlows.map((flow) => (
-            <article className={`process-flow ${flow.tone}`} key={flow.number}>
+            <article className={`process-flow ${flow.tone}`} key={flow.number} data-reveal>
               <div className="process-flow-title"><span>{flow.number}</span><div><h3>{flow.title}</h3><p>{flow.summary}</p></div></div>
               <ol className="flow-steps" aria-label={`${flow.title} workflow`}>
                 {flow.steps.map(([role, title, detail], index) => (
@@ -527,7 +527,7 @@ function Faq() {
   ]
   return (
     <section className="faq-section section-pad" id="questions">
-      <div className="page-wrap faq-grid">
+      <div className="page-wrap faq-grid" data-reveal>
         <div><p className="eyebrow eyebrow-ink">GOOD QUESTIONS</p><h2>Before the<br /><span>first bell.</span></h2><p className="faq-lede">A few things school teams usually want to know.</p></div>
         <div className="faq-list">
           {items.map(([question, answer]) => <details className="faq-item" key={question}><summary>{question}<span className="faq-plus"><ChevronDown size={17} /></span></summary><p>{answer}</p></details>)}
@@ -540,7 +540,7 @@ function Faq() {
 function FinalCta() {
   return (
     <section className="cta-section">
-      <div className="page-wrap cta-inner">
+      <div className="page-wrap cta-inner" data-reveal>
         <div><p className="eyebrow eyebrow-ink">A BETTER SCHOOL DAY STARTS WITH A BETTER HANDOFF</p><h2>Bring the school day<br />back into focus.</h2></div>
         <a className="button button-dark" href="#product">Explore the sample workspace <ArrowRight size={17} /></a>
         <p className="cta-note">CampusFlow · a school operations platform by Vyom Technologies</p>
@@ -565,6 +565,27 @@ function Footer({ setActive }) {
 
 function App() {
   const [active, setActive] = useState('overview')
+
+  useEffect(() => {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+    if (reducedMotion.matches || !('IntersectionObserver' in window)) return undefined
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return
+        entry.target.classList.add('is-visible')
+        observer.unobserve(entry.target)
+      })
+    }, { threshold: 0.12, rootMargin: '0px 0px -32px 0px' })
+
+    document.documentElement.classList.add('motion-ready')
+    document.querySelectorAll('[data-reveal]').forEach((element) => revealObserver.observe(element))
+
+    return () => {
+      revealObserver.disconnect()
+      document.documentElement.classList.remove('motion-ready')
+    }
+  }, [])
 
   return (
     <>

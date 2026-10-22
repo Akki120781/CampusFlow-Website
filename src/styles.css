@@ -467,3 +467,84 @@ h2 span { color: #547264; font-family: Newsreader, Georgia, serif; font-style: i
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+/* Calm entrance and scroll motion */
+@keyframes hero-image-settle {
+  from { transform: scale(1.045); }
+  to { transform: scale(1); }
+}
+
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes workspace-enter {
+  from { opacity: 0; transform: translateY(7px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes metric-enter {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-image { animation: hero-image-settle 1.5s cubic-bezier(.2,.7,.2,1) both; }
+  .hero-content > * { animation: hero-rise .62s cubic-bezier(.2,.7,.2,1) both; }
+  .hero-content > :nth-child(1) { animation-delay: .08s; }
+  .hero-content > :nth-child(2) { animation-delay: .16s; }
+  .hero-content > :nth-child(3) { animation-delay: .24s; }
+  .hero-content > :nth-child(4) { animation-delay: .32s; }
+  .hero-content > :nth-child(5) { animation-delay: .4s; }
+  .hero-content > :nth-child(6) { animation-delay: .48s; }
+  .hero-foot { animation: hero-rise .55s .56s cubic-bezier(.2,.7,.2,1) both; }
+  .workspace-body { animation: workspace-enter .32s ease both; }
+  .metric { animation: metric-enter .3s ease both; }
+  .metric:nth-child(2) { animation-delay: .04s; }
+  .metric:nth-child(3) { animation-delay: .08s; }
+  .activity-row { animation: metric-enter .28s ease both; }
+  .activity-row:nth-child(2) { animation-delay: .04s; }
+  .activity-row:nth-child(3) { animation-delay: .08s; }
+  .activity-row:nth-child(4) { animation-delay: .12s; }
+  .motion-ready .process-flow.is-visible .flow-step { animation: metric-enter .32s ease both; }
+  .motion-ready .process-flow.is-visible .flow-step:nth-child(2) { animation-delay: .06s; }
+  .motion-ready .process-flow.is-visible .flow-step:nth-child(3) { animation-delay: .12s; }
+  .motion-ready .process-flow.is-visible .flow-step:nth-child(4) { animation-delay: .18s; }
+}
+
+.motion-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .62s ease, transform .62s cubic-bezier(.2,.7,.2,1);
+}
+
+.motion-ready [data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.motion-ready .workflow-item[data-reveal]:nth-child(2),
+.motion-ready .role-panel[data-reveal]:nth-child(2),
+.motion-ready .module-card[data-reveal]:nth-child(2),
+.motion-ready .process-flow[data-reveal]:nth-child(2) { transition-delay: .07s; }
+
+.motion-ready .workflow-item[data-reveal]:nth-child(3),
+.motion-ready .role-panel[data-reveal]:nth-child(3),
+.motion-ready .module-card[data-reveal]:nth-child(3),
+.motion-ready .process-flow[data-reveal]:nth-child(3) { transition-delay: .14s; }
+
+.motion-ready .role-panel[data-reveal]:nth-child(4),
+.motion-ready .module-card[data-reveal]:nth-child(4) { transition-delay: .21s; }
+
+.motion-ready .module-card[data-reveal]:nth-child(5) { transition-delay: .28s; }
+.motion-ready .module-card[data-reveal]:nth-child(6) { transition-delay: .35s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-ready [data-reveal],
+  .motion-ready [data-reveal].is-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
