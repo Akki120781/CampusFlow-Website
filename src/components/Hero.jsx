@@ -1,4 +1,5 @@
-import { ArrowDown, ArrowRight, CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react'
+import { ArrowRight, ShieldCheck } from 'lucide-react'
+import { Marquee } from './Marquee'
 
 export function Hero() {
   return (
@@ -40,7 +41,7 @@ export function Hero() {
           </a>
         </div>
 
-        {/* EtherealX / Arovas-style Quick Metrics Bar */}
+        {/* Centered Quick Metrics Bar */}
         <div className="hero-trust-bar">
           <div className="trust-pill">
             <strong>1,100+</strong> <span>Schools Nationwide</span>
@@ -61,12 +62,8 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="hero-foot page-wrap">
-        <span>Less chasing paperwork. More time for actual learning.</span>
-        <a href="#intro" aria-label="Scroll down to explore">
-          <ArrowDown size={18} />
-        </a>
-      </div>
+      {/* Moving line fitted inside the same landing screen */}
+      <Marquee />
     </section>
   )
 }

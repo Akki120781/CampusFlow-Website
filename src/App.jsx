@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { Header } from './components/Header'
 import { Hero } from './components/Hero'
-import { Marquee } from './components/Marquee'
 import { Intro } from './components/Intro'
 import { WorkspacePreview } from './components/workspace/WorkspacePreview'
 import { HowItWorks } from './components/HowItWorks'
@@ -43,7 +42,6 @@ function App() {
     <div className="campusflow-app">
       <Header />
       <Hero />
-      <Marquee />
       <Intro />
       <WorkspacePreview />
       <HowItWorks />
