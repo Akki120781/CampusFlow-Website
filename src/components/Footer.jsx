@@ -11,7 +11,6 @@ export function Footer() {
             The AI-powered operating system for forward-thinking schools. Connecting classrooms, administration, and families into one calm, dependable workflow.
           </p>
           <div className="footer-status-indicator">
-            <span className="live-telemetry-dot" />
             <span>SYSTEM OPERATIONAL · 99.98% UPTIME</span>
           </div>
         </div>

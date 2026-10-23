@@ -7,7 +7,6 @@ export function HowItWorks() {
       <div className="page-wrap">
         <div className="workflow-heading" data-reveal>
           <div className="eyebrow-pill eyebrow-ink">
-            <span className="pill-dot" />
             <span>CHRONOLOGY OF A CONNECTED SCHOOL</span>
           </div>
           <h2>

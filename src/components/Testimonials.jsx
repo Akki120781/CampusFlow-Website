@@ -7,7 +7,6 @@ export function Testimonials() {
       <div className="page-wrap">
         <div className="section-heading" data-reveal>
           <div className="eyebrow-pill eyebrow-ink">
-            <span className="pill-dot" />
             <span>ENDORSED BY SCHOOL LEADERSHIP</span>
           </div>
           <h2>

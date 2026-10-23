@@ -45,7 +45,6 @@ export function Contact() {
       <div className="page-wrap contact-grid">
         <div className="contact-copy" data-reveal>
           <div className="eyebrow-pill eyebrow-ink">
-            <span className="pill-dot" />
             <span>LET'S DISCUSS YOUR INSTITUTION</span>
           </div>
 

@@ -6,7 +6,6 @@ export function FinalCta() {
       <div className="page-wrap cta-inner" data-reveal>
         <div className="cta-copy-col">
           <div className="eyebrow-pill eyebrow-ink">
-            <span className="pill-dot" />
             <span>TRANSFORM YOUR SCHOOL OPERATIONS</span>
           </div>
           <h2>

@@ -14,7 +14,6 @@ export function Hero() {
 
       <div className="hero-content page-wrap">
         <div className="eyebrow-pill hero-eyebrow">
-          <span className="eyebrow-dot" />
           <span>NOT JUST ANOTHER SCHOOL ERP // THE AI OPERATING SYSTEM</span>
         </div>
 
@@ -44,22 +43,19 @@ export function Hero() {
         {/* EtherealX / Arovas-style Quick Metrics Bar */}
         <div className="hero-trust-bar">
           <div className="trust-pill">
-            <span className="trust-dot" />
             <strong>1,100+</strong> <span>Schools Nationwide</span>
           </div>
           <div className="trust-divider" />
           <div className="trust-pill">
-            <span className="trust-dot" />
             <strong>30s</strong> <span>Classroom Roll Call</span>
           </div>
           <div className="trust-divider" />
           <div className="trust-pill">
-            <span className="trust-dot" />
             <strong>100%</strong> <span>Fee Reconciled</span>
           </div>
           <div className="trust-divider" />
           <div className="trust-pill">
-            <ShieldCheck size={14} className="text-lime" />
+            <ShieldCheck size={16} className="text-lime" />
             <span>DPDP & CBSE Ready</span>
           </div>
         </div>

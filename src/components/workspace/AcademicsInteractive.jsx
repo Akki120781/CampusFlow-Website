@@ -38,7 +38,7 @@ export function AcademicsInteractive() {
               <span className="mono-sub">Grade 6 · Section A · Class Teacher: Mrs. S. Sen</span>
             </div>
             <span className="live-period-tag">
-              <span className="pulse-dot" /> Period 2 In Session
+              Period 2 In Session
             </span>
           </div>
 

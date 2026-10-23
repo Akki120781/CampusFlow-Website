@@ -6,7 +6,6 @@ export function Intro() {
       <div className="page-wrap intro-grid" data-reveal>
         <div>
           <div className="eyebrow-pill eyebrow-ink">
-            <span className="pill-dot" />
             <span>THE MODERN SCHOOL OPERATING SYSTEM</span>
           </div>
           <h2>
@@ -28,13 +27,25 @@ export function Intro() {
         </div>
 
         <div className="intro-ribbon" aria-label="CampusFlow connects school operations">
-          <span>CLASSROOM ROLL CALL</span>
-          <ArrowRight size={17} />
-          <span>FEE &amp; OFFICE DESK</span>
-          <ArrowRight size={17} />
-          <span>FAMILY NOTIFICATIONS</span>
-          <ArrowRight size={17} />
-          <span>SAFE COMMUTE &amp; ACADEMICS</span>
+          <a className="ribbon-link" href="#product">
+            <span>CLASSROOM ROLL CALL</span>
+            <ArrowRight size={14} />
+          </a>
+          <span className="ribbon-sep" aria-hidden="true">/</span>
+          <a className="ribbon-link" href="#product">
+            <span>FEE &amp; OFFICE DESK</span>
+            <ArrowRight size={14} />
+          </a>
+          <span className="ribbon-sep" aria-hidden="true">/</span>
+          <a className="ribbon-link" href="#for-everyone">
+            <span>FAMILY NOTIFICATIONS</span>
+            <ArrowRight size={14} />
+          </a>
+          <span className="ribbon-sep" aria-hidden="true">/</span>
+          <a className="ribbon-link" href="#modules">
+            <span>SAFE COMMUTE &amp; ACADEMICS</span>
+            <ArrowRight size={14} />
+          </a>
         </div>
       </div>
     </section>

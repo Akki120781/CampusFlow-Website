@@ -36,7 +36,6 @@ export function WorkspacePreview() {
         <div className="section-heading section-heading-row" data-reveal>
           <div>
             <div className="eyebrow-pill">
-              <span className="pill-dot" />
               <span>LIVE INTERACTIVE PRODUCT LAB</span>
             </div>
             <h2>
@@ -129,7 +128,6 @@ export function WorkspacePreview() {
                 tabIndex={0}
               >
                 <ClipboardCheck size={16} /> Attendance
-                <span className="rail-live-pulse" />
               </div>
               <div
                 className={`rail-item ${activeModule === 'fees' ? 'rail-item-current' : ''}`}
@@ -209,7 +207,7 @@ export function WorkspacePreview() {
                 </div>
 
                 <div className="demo-label">
-                  <span className="live-amber-dot" /> LIVE INTERACTIVE ENVIRONMENT
+                  SAMPLE INTERACTIVE ENVIRONMENT
                 </div>
               </div>
 

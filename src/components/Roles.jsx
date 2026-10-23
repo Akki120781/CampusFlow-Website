@@ -8,7 +8,6 @@ export function Roles() {
         <div className="section-heading section-heading-row roles-heading" data-reveal>
           <div>
             <div className="eyebrow-pill eyebrow-light">
-              <span className="pill-dot" />
               <span>DESIGNED FOR YOUR ENTIRE ECOSYSTEM</span>
             </div>
             <h2>

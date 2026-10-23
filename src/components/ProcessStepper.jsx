@@ -12,7 +12,6 @@ export function ProcessStepper() {
         <div className="process-heading" data-reveal>
           <div>
             <div className="eyebrow-pill eyebrow-ink">
-              <span className="pill-dot" />
               <span>THE OPERATIONAL HANDOFF BLUEPRINT</span>
             </div>
             <h2>

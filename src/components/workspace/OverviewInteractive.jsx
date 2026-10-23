@@ -58,7 +58,6 @@ export function OverviewInteractive({ onNavigate }) {
       <div className="overview-ai-card">
         <div className="ai-card-titlebar">
           <div className="ai-brand-indicator">
-            <span className="live-telemetry-dot" />
             <span className="mono-title">CAMPUSFLOW AI DISPATCH // LIVE TELEMETRY</span>
           </div>
           <span className="ai-timestamp">{new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })} IST</span>

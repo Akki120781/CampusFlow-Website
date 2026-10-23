@@ -7,7 +7,6 @@ export function Faq() {
       <div className="page-wrap faq-grid" data-reveal>
         <div>
           <div className="eyebrow-pill eyebrow-ink">
-            <span className="pill-dot" />
             <span>ANSWERS TO KEY QUESTIONS</span>
           </div>
           <h2>

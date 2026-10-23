@@ -35,11 +35,6 @@ export function Header() {
       <div className="header-inner">
         <Brand />
 
-        {/* EtherealX-inspired Live Telemetry Pill (Desktop) */}
-        <div className="header-telemetry-badge">
-          <span className="telemetry-live-dot" />
-          <span className="telemetry-text">ACADEMIC SESSION 2026-27 ACTIVE // IND</span>
-        </div>
 
         <button
           className="menu-toggle"

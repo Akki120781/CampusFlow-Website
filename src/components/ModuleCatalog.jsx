@@ -17,7 +17,6 @@ export function ModuleCatalog() {
         <div className="capabilities-head" data-reveal>
           <div>
             <div className="eyebrow-pill eyebrow-ink">
-              <span className="pill-dot" />
               <span>THE ENTERPRISE SCHOOL ERP SUITE</span>
             </div>
             <h2>
@@ -90,7 +89,6 @@ export function ModuleCatalog() {
         <div className="expansion-row" data-reveal>
           <div className="expansion-copy">
             <div className="eyebrow-pill eyebrow-ink">
-              <span className="pill-dot" />
               <span>FUTURE READY ECOSYSTEM</span>
             </div>
             <h3>Looking to scale multi-branch institutions?</h3>
